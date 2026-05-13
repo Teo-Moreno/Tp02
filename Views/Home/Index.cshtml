@@ -1,8 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Receta";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Receta</h2>
+
+<form method="post" action="/Home/Resultado">
+    <h3>Datos del cocinero</h3>
+    <label>Nombre del cocinero</label>
+    <input type="text" name="NombreCocinero" />
+    <label>Fecha de nacimiento</label>
+    <input type="date" name="Edad" />
+
+    <h3>Datos de la receta</h3>
+    <label>Tipo de comida</label>
+    <select name="TipoComida">
+        <option value="Caliente">Caliente</option>
+        <option value="Fria">Fria</option>
+    </select>
+    <label>Presupuesto</label>
+    <input type="number" name="Presupuesto" /> 
+    <label>Cantidad de personas</label>
+    <input type="number" name="CantPersonas" /> 
+
+   
+    <button type="submit">Listo</button>
+</form>

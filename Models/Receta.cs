@@ -22,27 +22,27 @@ public class Receta
     }
 
     public void DeterminarPlato(){
-        if(Tipo == Caliente && Precio <= 3000)
+        if(Tipo == "Caliente" && Precio <= 3000)
         {
             NombrePlato = "Fideos con manteca";
         }
-        if(Tipo == Caliente && Precio >= 3000 && Precio <= 7000)
+        if(Tipo == "Caliente" && Precio > 3000 && Precio < 7000)
         {
             NombrePlato = "Arroz con verduras salteadas";
         }
-        if(Tipo == Caliente && Precio >= 7000)
+        if(Tipo == "Caliente" && Precio >= 7000)
         {
             NombrePlato = "Pollo al horno con guarnición";
         }
-        if(Tipo == Frio && Precio <= 3000)
+        if(Tipo == "Frio" && Precio <= 3000)
         {
             NombrePlato = "Ensalada simple";
         }
-        if(Tipo == Frio && Precio >= 3000 && Precio <= 7000)
+        if(Tipo == "Frio" && Precio > 3000 && Precio < 7000)
         {
             NombrePlato = "Ensalada completa con proteína";
         }
-        if(Tipo == Frio && Precio >= 7000)
+        if(Tipo == "Frio" && Precio >= 7000)
         {
             NombrePlato = "Tabla de fiambres y quesos";
         }
@@ -51,11 +51,11 @@ public class Receta
 
     public void CalcularTiempo()
     {
-        int tiempo;
-        if(CantPersonas<=3){tiempo = 20};
-        if(CantPersonas<=7 && CantPersonas<=4){tiempo = 40};
-        if(CantPersonas>=8){tiempo = 80};
-        if (Tipo == "Frio"){tiempo/=2};
+        int tiempo = 0;
+        if(CantPersonas<=3){tiempo = 20;}
+        if(CantPersonas<=7 && CantPersonas<=4){tiempo = 40;}
+        if(CantPersonas>=8){tiempo = 80;}
+        if (Tipo == "Frio"){tiempo/=2;}
         Tiempo = tiempo;
     }
 
@@ -93,11 +93,11 @@ public class Receta
 
         if (edad < 18)
         {
-            return "Advertencia: contenido no recomendado para menores de edad.";
+            return "El contenido no es recomendado para menores de edad.";
         }
         else if (edad >= 60)
         {
-            return "¡Recetas especiales para vos! Disfrutá cocinar con calma y experiencia.";
+            return "¡Recetas especiales para vos! Disfrutá de cocinar con calma y experiencia.";
         }
         else
         {

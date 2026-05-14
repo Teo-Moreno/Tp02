@@ -18,6 +18,28 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Resultado(string NombreCocinero, DateTime Fecha, string TipoComida,int Presupuesto, int CantPersonas)
+    {
+        Receta receta = new Receta();
+        if (receta.CalcularEdad() > 20) return View("Maxpersonas");
+        receta.NombreCocinero = NombreCocinero;
+        receta.FechaNacimiento = Fecha; 
+        receta.Tipo = TipoComida;
+        receta.Precio = Presupuesto;
+        receta.CantPersonas = CantPersonas;
+
+        ViewBag.Edad = receta.CalcularEdad();
+        ViewBag.Nombre = NombreCocinero;
+        ViewBag.CantPersonas = CantPersonas;
+        receta.DeterminarPlato();
+        ViewBag.Plato = receta.NombrePlato;
+        receta.CalcularTiempo();
+        ViewBag.Tiempo = receta.Tiempo;
+        receta.DeterminarDificultad();
+        ViewBag.Dificultad = receta.Dificultad;
+        return View();
+    }
+
     public IActionResult Privacy()
     {
         return View();

@@ -21,14 +21,16 @@ public class HomeController : Controller
     public IActionResult Resultado(string NombreCocinero, DateTime Fecha, string TipoComida,int Presupuesto, int CantPersonas)
     {
         Receta receta = new Receta();
-        if (receta.CalcularEdad() > 20) return View("Maxpersonas");
+        if (CantPersonas > 20) return View("Maxpersonas");
         receta.NombreCocinero = NombreCocinero;
         receta.FechaNacimiento = Fecha; 
         receta.Tipo = TipoComida;
         receta.Precio = Presupuesto;
         receta.CantPersonas = CantPersonas;
 
+        ViewBag.Saludo = receta.GenerarSaludo();
         ViewBag.Edad = receta.CalcularEdad();
+        ViewBag.Tip = receta.GenerarTip();
         ViewBag.Nombre = NombreCocinero;
         ViewBag.CantPersonas = CantPersonas;
         receta.DeterminarPlato();

@@ -22,6 +22,7 @@ public class HomeController : Controller
     {
         Receta receta = new Receta();
         if (CantPersonas > 20) return View("Maxpersonas");
+        if (CantPersonas < 1) return View("PersonasNegativas");
         receta.NombreCocinero = NombreCocinero;
         receta.FechaNacimiento = Fecha; 
         receta.Tipo = TipoComida;
